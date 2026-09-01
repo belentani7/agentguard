@@ -1,0 +1,29 @@
+budget:
+  daily: 10.00
+  weekly: 50.00
+
+alerts:
+  thresholds: [80, 95, 100]
+  email: ""
+  slack_webhook: ""
+
+routing:
+  fallback_model: qwen
+  quality_threshold: 0.8
+
+monitored_tools:
+  - name: claude
+    log_pattern: "~/.claude/logs/*.log"
+    cost_regex: '(?i)(?:cost|total|spent|price)["\s:=]+\$?([\d.]+)'
+
+  - name: aider
+    log_pattern: "~/.aider/logs/*.log"
+    cost_regex: '(?i)(?:cost|total|spent|price)["\s:=]+\$?([\d.]+)'
+
+  - name: codex
+    log_pattern: "~/.codex/logs/*.log"
+    cost_regex: '(?i)(?:cost|total|spent|price)["\s:=]+\$?([\d.]+)'
+
+  - name: qwen
+    log_pattern: "~/.qwen/logs/*.log"
+    cost_regex: '(?i)(?:cost|total|spent|price)["\s:=]+\$?([\d.]+)'

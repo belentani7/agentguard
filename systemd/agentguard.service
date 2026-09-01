@@ -1,0 +1,25 @@
+[Unit]
+Description=AgentGuard - AI Budget Sentinel
+Documentation=https://github.com/belentani7/agentguard
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/agentguard start --foreground
+Restart=on-failure
+RestartSec=5
+Environment=AGENTGUARD_CONFIG=%h/.agentguard/config.yaml
+
+# Security hardening
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=%h/.agentguard
+PrivateTmp=yes
+
+# Resource limits
+MemoryMax=256M
+CPUQuota=5%
+
+[Install]
+WantedBy=default.target
