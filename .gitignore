@@ -51,3 +51,12 @@ alembic/versions/*.py
 
 # Ruff
 .ruff_cache/
+
+# remediacion 2026-09-14
+node_modules/
+.env
+.env.*
+.mimosa/
+__pycache__/
+.vercel/
+*.log
